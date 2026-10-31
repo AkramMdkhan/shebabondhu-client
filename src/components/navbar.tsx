@@ -28,7 +28,7 @@ export function Navbar() {
   const isEventsActive = pathname.startsWith("/events");
 
   return (
-    <header className="sticky top-4 z-50 mx-auto mt-4 w-full max-w-7xl px-4 sm:px-6">
+    <header className="sticky top-0 z-50 mx-auto mt-4 w-full max-w-7xl px-4 sm:px-6">
       <nav
         className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 rounded-3xl border border-border bg-card/80 py-3 pl-5 pr-3 backdrop-blur-md md:rounded-full md:pl-6"
         aria-label="Main navigation"
