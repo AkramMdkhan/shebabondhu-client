@@ -1,5 +1,6 @@
 // import type { Metadata } from "next";
 // import { Inter, JetBrains_Mono, Sora } from "next/font/google";
+// import { Footer } from "@/components/footer";
 // import { Navbar } from "@/components/navbar";
 // import { ThemeProvider } from "@/components/theme-provider";
 // import "./globals.css";
@@ -44,6 +45,7 @@
 //         >
 //           <Navbar />
 //           <main className="flex-1">{children}</main>
+//           <Footer />
 //         </ThemeProvider>
 //       </body>
 //     </html>
@@ -51,12 +53,12 @@
 // }
 
 
-
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Sora } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const inter = Inter({
@@ -100,6 +102,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
+          <Toaster richColors position="top-center" />
         </ThemeProvider>
       </body>
     </html>
