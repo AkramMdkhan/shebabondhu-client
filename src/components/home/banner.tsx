@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  CalendarPlus,
+  HandHeart,
+  HeartHandshake,
+  Recycle,
+  TreePine,
+} from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -18,14 +25,21 @@ const steps = [
   },
 ];
 
+const eventTypes = [
+  { label: "Donation", icon: HandHeart },
+  { label: "Plantation", icon: TreePine },
+  { label: "Cleanup", icon: Recycle },
+];
+
 export function Banner() {
   return (
     <section className="mx-auto grid w-full max-w-7xl items-center gap-14 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:py-28">
       <div>
-        <span className="font-mono text-sm text-brand">
-          {"// community-driven events"}
+        <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 font-mono text-sm text-brand">
+          <HeartHandshake className="size-4" />
+          community-driven events
         </span>
-        <h1 className="mt-4 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+        <h1 className="mt-5 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
           Turn free time into{" "}
           <span className="text-brand-gradient">real impact.</span>
         </h1>
@@ -53,9 +67,22 @@ export function Banner() {
               "h-12 rounded-full px-7 font-semibold"
             )}
           >
+            <CalendarPlus className="size-4" />
             Create an Event
           </Link>
         </div>
+
+        <ul className="mt-8 flex flex-wrap gap-3" aria-label="Event types">
+          {eventTypes.map(({ label, icon: Icon }) => (
+            <li
+              key={label}
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium"
+            >
+              <Icon className="size-4 text-brand" />
+              {label}
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div className="flex justify-center lg:justify-end">

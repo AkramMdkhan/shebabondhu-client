@@ -1,12 +1,9 @@
 import { Banner } from "@/components/home/banner";
 
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div>
-     
-     <Banner />
-     
-    </div>
+    <>
+      <Banner />
+    </>
   );
 }
