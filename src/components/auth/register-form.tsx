@@ -8,6 +8,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { Controller, useForm, type FieldErrors } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
+import { GoogleButton } from "@/components/auth/google-button";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -204,6 +205,14 @@ export function RegisterForm() {
             {form.formState.isSubmitting ? "Creating account..." : "Register"}
           </Button>
         </form>
+
+        <div className="my-6 flex items-center gap-3 text-sm text-muted-foreground">
+          <span className="h-px flex-1 bg-border" />
+          or
+          <span className="h-px flex-1 bg-border" />
+        </div>
+
+        <GoogleButton />
 
         <p className="mt-6 text-center text-sm text-muted-foreground">
           Already have an account?{" "}

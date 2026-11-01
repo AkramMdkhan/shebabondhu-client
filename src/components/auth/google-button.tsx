@@ -28,14 +28,18 @@ function GoogleIcon() {
   );
 }
 
-export function GoogleButton() {
+export function GoogleButton({ callbackURL = "/" }: { callbackURL?: string }) {
   const [loading, setLoading] = useState(false);
 
   async function handleClick() {
     setLoading(true);
+
+    // Use the full address of this site so the return page is always kept
+    const fullCallbackURL = `${window.location.origin}${callbackURL}`;
+
     const { error } = await signIn.social({
       provider: "google",
-      callbackURL: "/",
+      callbackURL: fullCallbackURL,
     });
 
     // On success the browser leaves for Google, so we only handle errors here
