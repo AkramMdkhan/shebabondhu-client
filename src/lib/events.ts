@@ -36,3 +36,16 @@ export async function getEvents(params: EventsParams = {}): Promise<EventItem[]>
     return [];
   }
 }
+
+// Fetches one event by id. Returns null if it does not exist.
+export async function getEvent(id: string): Promise<EventItem | null> {
+  try {
+    const res = await fetch(`${API_URL}/api/events/${id}`, {
+      cache: "no-store",
+    });
+    if (!res.ok) return null;
+    return (await res.json()) as EventItem;
+  } catch {
+    return null;
+  }
+}

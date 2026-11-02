@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { CalendarX2 } from "lucide-react";
 import { EventCard } from "@/components/event-card";
+import { EventsFilter } from "@/components/events/events-filter";
 import { buttonVariants } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { getEvents } from "@/lib/events";
 import { cn } from "@/lib/utils";
 
@@ -17,6 +20,7 @@ type EventsPageProps = {
 export default async function EventsPage({ searchParams }: EventsPageProps) {
   const { type, search } = await searchParams;
   const events = await getEvents({ type, search });
+  const isFiltered = Boolean(type || search);
 
   return (
     <section className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:py-16">
@@ -30,6 +34,10 @@ export default async function EventsPage({ searchParams }: EventsPageProps) {
         </p>
       </div>
 
+      <Suspense fallback={<Skeleton className="mt-8 h-12 w-full rounded-full" />}>
+        <EventsFilter />
+      </Suspense>
+
       {events.length > 0 ? (
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {events.map((event) => (
@@ -39,20 +47,35 @@ export default async function EventsPage({ searchParams }: EventsPageProps) {
       ) : (
         <div className="mt-10 flex flex-col items-center rounded-3xl border border-dashed border-border px-6 py-16 text-center">
           <CalendarX2 className="size-10 text-muted-foreground" />
-          <h2 className="mt-4 text-xl font-semibold">No upcoming events found</h2>
+          <h2 className="mt-4 text-xl font-semibold">
+            No upcoming events found
+          </h2>
           <p className="mt-2 max-w-md text-muted-foreground">
-            Nothing matches right now. Try again later or start an event
-            yourself.
+            {isFiltered
+              ? "Nothing matches your search. Try a different word or event type."
+              : "Nothing is scheduled right now. Start an event yourself."}
           </p>
-          <Link
-            href="/create-event"
-            className={cn(
-              buttonVariants(),
-              "bg-brand-gradient mt-6 h-11 rounded-full px-6 font-semibold text-primary-foreground hover:opacity-90"
-            )}
-          >
-            Create an Event
-          </Link>
+          {isFiltered ? (
+            <Link
+              href="/events"
+              className={cn(
+                buttonVariants({ variant: "outline" }),
+                "mt-6 h-11 rounded-full px-6 font-semibold"
+              )}
+            >
+              Clear filters
+            </Link>
+          ) : (
+            <Link
+              href="/create-event"
+              className={cn(
+                buttonVariants(),
+                "bg-brand-gradient mt-6 h-11 rounded-full px-6 font-semibold text-primary-foreground hover:opacity-90"
+              )}
+            >
+              Create an Event
+            </Link>
+          )}
         </div>
       )}
     </section>
