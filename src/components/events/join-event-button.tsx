@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { CheckCircle2, HeartHandshake } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { authFetch } from "@/lib/api";
 import { useSession } from "@/lib/auth-client";
 
@@ -18,7 +19,11 @@ export function JoinEventButton({ eventId, isPast }: JoinEventButtonProps) {
   const { data: session, isPending } = useSession();
   const [joined, setJoined] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [checkedEmail, setCheckedEmail] = useState<string | null>(null);
   const email = session?.user?.email;
+
+  // Still working out who the visitor is, or whether they already joined
+  const checking = isPending || (Boolean(email) && checkedEmail !== email);
 
   // If the user is logged in, check whether they already joined this event
   useEffect(() => {
@@ -30,7 +35,10 @@ export function JoinEventButton({ eventId, isPast }: JoinEventButtonProps) {
       .then((data) => {
         if (!ignore && data?.joined) setJoined(true);
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => {
+        if (!ignore) setCheckedEmail(email);
+      });
 
     return () => {
       ignore = true;
@@ -38,9 +46,9 @@ export function JoinEventButton({ eventId, isPast }: JoinEventButtonProps) {
   }, [email, eventId]);
 
   async function handleJoin() {
-    // Logged-out visitors must log in first, then come back to this event
+    // Logged-out visitors must log in first, then come back to this event.
+    // The login page shows the "please log in" message.
     if (!session) {
-      toast.info("Please log in to join this event");
       router.push(`/login?redirect=${encodeURIComponent(`/events/${eventId}`)}`);
       return;
     }
@@ -80,6 +88,10 @@ export function JoinEventButton({ eventId, isPast }: JoinEventButtonProps) {
     );
   }
 
+  if (checking) {
+    return <Skeleton className="mt-8 h-12 w-full rounded-full" />;
+  }
+
   if (joined) {
     return (
       <Button
@@ -97,7 +109,7 @@ export function JoinEventButton({ eventId, isPast }: JoinEventButtonProps) {
     <Button
       type="button"
       onClick={handleJoin}
-      disabled={isPending || loading}
+      disabled={loading}
       className="bg-brand-gradient mt-8 h-12 w-full rounded-full font-semibold text-primary-foreground hover:opacity-90"
     >
       <HeartHandshake className="size-5" />
