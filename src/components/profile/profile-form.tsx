@@ -142,17 +142,6 @@ function ProfileForm({ user }: { user: ProfileUser }) {
               )}
             />
 
-            <Field>
-              <FieldLabel htmlFor="profile-email">Email</FieldLabel>
-              <Input
-                id="profile-email"
-                value={user.email}
-                readOnly
-                disabled
-                className="h-11 rounded-xl"
-              />
-              <FieldDescription>Your email cannot be changed.</FieldDescription>
-            </Field>
           </FieldGroup>
 
           <Button

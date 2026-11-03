@@ -19,5 +19,6 @@ export const config = {
     "/manage-events/:path*",
     "/joined-events",
     "/update-event/:path*",
+    "/profile",
   ],
 };
