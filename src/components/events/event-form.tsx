@@ -42,7 +42,7 @@ const eventSchema = z.object({
   description: z
     .string()
     .trim()
-    .min(20, "Description must be at least 20 characters"),
+    .min(10, "Description must be at least 10 characters"),
   eventType: z
     .string()
     .refine((value) => eventTypes.includes(value), "Please choose an event type"),
