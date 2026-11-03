@@ -29,7 +29,6 @@ export default async function EventDetailsPage({
     notFound();
   }
 
-  // An event is in the past if its date is before today (UTC, same as the server)
   const startOfToday = new Date();
   startOfToday.setUTCHours(0, 0, 0, 0);
   const isPast = new Date(event.eventDate) < startOfToday;
