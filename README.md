@@ -150,4 +150,4 @@ npm start
 
 **Akram Mohammad Khan**, MERN Stack Developer
 
-[GitHub](https://github.com/AkramMdkhan) · [LinkedIn](https://www.linkedin.com/in/akrammdkhan)
+[GitHub](https://github.com/AkramMdkhan) · [LinkedIn](https://www.linkedin.com/in/akrammdkhan) · [Portfolio](https://akram-mohammad-khan-portfolio.vercel.app)
