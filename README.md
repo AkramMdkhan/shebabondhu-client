@@ -95,7 +95,7 @@ See [`package.json`](./package.json) for the complete list.
 
 ### Prerequisites
 
-- Node.js 18 or later
+- [Node.js](https://nodejs.org/) 20.19 or later
 - A MongoDB connection string
 - Google OAuth credentials
 - The [Shebabondhu server](https://github.com/AkramMdkhan/shebabondhu-server) running locally or deployed
@@ -150,4 +150,4 @@ npm start
 
 **Akram Mohammad Khan**, MERN Stack Developer
 
-[GitHub](https://github.com/AkramMdkhan) · [LinkedIn](https://www.linkedin.com/in/akrammdkhan) · [Portfolio](https://akram-mohammad-khan-portfolio.vercel.app)
+[Portfolio](https://akram-mohammad-khan-portfolio.vercel.app) · [GitHub](https://github.com/AkramMdkhan) · [LinkedIn](https://www.linkedin.com/in/akrammdkhan)
