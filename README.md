@@ -18,7 +18,7 @@ A community-driven platform where people create, join and track social service e
 
 <br/>
 
-<img src="./public/screenshot.png" alt="Shebabondhu Screenshot" width="100%" />
+<img src="./public/screenshot.JPG" alt="Shebabondhu Screenshot" width="100%" />
 
 </div>
 
