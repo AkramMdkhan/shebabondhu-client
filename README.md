@@ -1,11 +1,30 @@
-# Shebabondhu (সেবাবন্ধু)
+<div align="center">
 
-Shebabondhu is a community-driven platform where people create, join and track social service events in their own area, such as winter clothes distribution, blanket distribution, tree plantation and clean-up drives.
+# 🤝 Shebabondhu (সেবাবন্ধু)
 
-**Live Site:** https://shebabondhu-client.vercel.app
-**Server Repository:** https://github.com/AkramMdkhan/shebabondhu-server
+**Create, join and track social service events in your community**
 
-## About the Project
+A community-driven platform where people create, join and track social service events in their own area, such as winter clothes distribution, blanket distribution, tree plantation and clean-up drives.
+
+<p>
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+</p>
+
+[Live Site](https://shebabondhu-client.vercel.app) · [Client Repository](https://github.com/AkramMdkhan/shebabondhu-client) · [Server Repository](https://github.com/AkramMdkhan/shebabondhu-server)
+
+<br/>
+
+<img src="./public/screenshot.png" alt="Shebabondhu Screenshot" width="100%" />
+
+</div>
+
+---
+
+## 📖 About the Project
 
 Many people want to help their community but do not know where or when a social service event is happening. Organizers often depend on social media posts and word of mouth, which makes it hard to reach volunteers and to keep track of who is joining.
 
@@ -25,7 +44,9 @@ Shebabondhu (meaning "friend in service") solves this by putting everything in o
 
 The goal is to make community service easier to find, easier to organize and easier to take part in.
 
-## Features
+---
+
+## ✨ Features
 
 - **Authentication:** Register and log in with email and password, or continue with Google. Passwords must contain an uppercase letter, a lowercase letter and at least 6 characters.
 - **Create Events:** Logged-in users can create events with a title, description, type, thumbnail, location and a future date. Past dates are not allowed.
@@ -38,7 +59,9 @@ The goal is to make community service easier to find, easier to organize and eas
 - **Protected Routes and APIs:** Private pages are guarded and server APIs are secured with JWT. Reloading a private page keeps the user signed in.
 - **Responsive Design:** Fully responsive on mobile, tablet and desktop, with toast notifications and loading skeletons.
 
-## Tech Stack
+---
+
+## 🧰 Tech Stack
 
 | Category | Technologies |
 | --- | --- |
@@ -50,7 +73,25 @@ The goal is to make community service easier to find, easier to organize and eas
 | Database | MongoDB |
 | Deployment | Vercel (client), Render (server) |
 
-## Getting Started
+---
+
+## 📦 Dependencies
+
+| Package | Purpose |
+| --- | --- |
+| `next`, `react`, `react-dom` | Core framework |
+| `better-auth` | Authentication |
+| `mongodb` | Database driver for Better Auth |
+| `tailwindcss` | Styling |
+| `lucide-react` | Icons |
+| `react-hook-form`, `zod` | Form handling and validation |
+| `sonner` | Toast notifications |
+
+See [`package.json`](./package.json) for the complete list.
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -95,7 +136,18 @@ npm run build
 npm start
 ```
 
-## Author
+---
 
-**Akram Mohammad Khan**
-MERN Stack Developer
+## 🔗 Links
+
+- **Live Site:** https://shebabondhu-client.vercel.app
+- **Client Repository:** https://github.com/AkramMdkhan/shebabondhu-client
+- **Server Repository:** https://github.com/AkramMdkhan/shebabondhu-server
+
+---
+
+## 👤 Author
+
+**Akram Mohammad Khan**, MERN Stack Developer
+
+[GitHub](https://github.com/AkramMdkhan) · [LinkedIn](https://www.linkedin.com/in/akrammdkhan)
